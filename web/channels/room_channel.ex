@@ -8,7 +8,7 @@ defmodule ElixirChatServer.RoomChannel do
   end
 
   def join("rooms:" <> _something_else, _msg, _socket) do
-    {:error, %{reason: "can't do this"}}
+    {:error, %{reason: "unauthorized"}}
   end
 
   def handle_info({:after_join, msg}, socket) do
@@ -17,7 +17,7 @@ defmodule ElixirChatServer.RoomChannel do
     {:noreply, socket}
   end
 
-  def terminate(_reason, _socket) do
+  def terminate(reason, _socket) do
     :ok
   end
 

@@ -2,7 +2,7 @@ defmodule ElixirChatServer.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "room:*", ElixirChatServer.RoomChannel
+  channel "rooms:*", ElixirChatServer.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -19,9 +19,7 @@ defmodule ElixirChatServer.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
-    {:ok, socket}
-  end
+  def connect(_params, socket), do: {:ok, socket}
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
