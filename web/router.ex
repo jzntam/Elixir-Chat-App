@@ -16,7 +16,7 @@ defmodule ElixirChatServer.Router do
   scope "/", ElixirChatServer do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", ChatController, :index
   end
 
   # Other scopes may use custom stacks.
